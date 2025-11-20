@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: #05060a;
+  --panel: #071226;
+  --accent: #1ea6ff;
+}
+
+.dark{ --bg:#020204; --panel:#05101a; }
+
+body{
+  background: radial-gradient(ellipse at top left, rgba(30,166,255,0.03), transparent 20%), var(--bg);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+}
+
+.container{ max-width:1100px; margin:0 auto; padding:2rem; }
+
+/* Social bar */
+.social-bar{
+  position: fixed;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:50;
+}
+.social-bar a{
+  width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.social-bar a:hover{ transform: translateY(-6px) scale(1.02); box-shadow: 0 8px 24px rgba(30,166,255,0.12); }
+
+/* micro animations */
+.btn-ghost{ transition: transform .15s ease, box-shadow .15s ease; }
+.btn-ghost:hover{ transform: translateY(-4px); box-shadow:0 10px 30px rgba(30,166,255,0.06); }
+
+/* small responsive */
+@media (max-width: 768px){
+  .social-bar{ left:8px; gap:8px; }
+}
